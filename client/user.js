@@ -4,7 +4,7 @@ angular.module('myApp', [])
 
     // Function to get all songs
     function getSongs() {
-        $http.get('http://localhost:5000/users/')
+        $http.get('https://sahithimusify.onrender.com/users/')
         .then(function(response) {
             console.log(response.data.users);
             $scope.songs = response.data.users;
@@ -19,7 +19,7 @@ angular.module('myApp', [])
             genre: $scope.genre,
             artist: $scope.artist
         };
-        $http.post('http://localhost:5000/users/', data)
+        $http.post('https://sahithimusify.onrender.com/users/', data)
         .then(function(response) {
             getSongs();
             $scope.album = '';
@@ -31,7 +31,7 @@ angular.module('myApp', [])
 
     // Function to delete a song
     $scope.deleteSong = function(song) {
-        $http.delete('http://localhost:5000/users/' + song._id)
+        $http.delete('https://sahithimusify.onrender.com/users/' + song._id)
         .then(function(response) {
             getSongs();
         });
@@ -45,7 +45,7 @@ angular.module('myApp', [])
             genre: song.genre,
             artist: song.artist
         };
-        $http.patch('http://localhost:5000/users/' + song._id, data)
+        $http.patch('https://sahithimusify.onrender.com/users/' + song._id, data)
         .then(function(response) {
             getSongs();
         });
