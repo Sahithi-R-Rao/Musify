@@ -1,0 +1,44 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <title>Musify</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="user.js"></script>
+    <link rel="stylesheet" href="./users.css">
+</head>
+<body ng-controller="myController">
+    <center>
+        <h1>Musify - your ownsic Library</h1>
+        <form ng-submit="addSong()">
+            <input type="text" ng-model="album" placeholder="Album">
+            <input type="text" ng-model="song" placeholder="Song">
+            <input type="text" ng-model="genre" placeholder="Genre">
+            <input type="text" ng-model="artist" placeholder="Artist">
+            <button type="submit">Add Song</button>
+        </form>
+    </center>
+    <table>
+        <thead>
+        <tr>
+            <th>Albun</th>
+            <th>Song</th>
+            <th>Genre</th>
+            <th>Artist</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="song in songs">
+            <td>{{ song.album }}</td>
+            <td>{{ song.song }}</td>
+            <td>{{ song.genre }}</td>
+            <td>{{ song.artist }}</td>
+            <td>
+                <button type="button" ng-click="deleteSong(song)">Delete</button>
+                <!-- <button type="button" ng-click="updateSong(song)">Update</button> -->
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
